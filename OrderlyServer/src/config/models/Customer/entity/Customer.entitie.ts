@@ -1,5 +1,4 @@
-import { Base, Address, Rol, PaymentMethod } from '../..'
-import { Order } from '../../Order.model';
+import { Base, Address, Rol, PaymentMethod, Notification } from '../..'
 
 // Cliente
 export interface Customer extends Base {
@@ -10,11 +9,13 @@ export interface Customer extends Base {
   address: Address[];
   photo: string;
   restaurantsFavorites: string[];
-  productsFavorites: string[];
   rol: Rol.USER;
-  orders: Order[]; // Array de pedidos realizados por el usuario
-  notifications: Notification[]; // Notificaciones
+  orders: string[]; // Array de pedidos realizados por el usuario
+  notifications: string[]; // Notificaciones
   wishlist?: string[]; // Lista de productos que le interesan
-  preferredPaymentMethod?: PaymentMethod; // Método de pago favorito
-  isVerified: boolean; // Estado de verificación
+  preferredPaymentMethod?: PaymentMethod[]; // Método de pago favorito
+  isVerified?: boolean; // Estado de verificación
 }
+
+export type CustomerDto = Omit<Customer, 'uuid'>
+export type updateCustomerDto = Partial<Customer>

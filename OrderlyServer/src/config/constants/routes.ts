@@ -16,10 +16,10 @@ export const PrivateRoutes = {
 }
 
 export const PublicRoutes = {
-  LOGIN: `/login`,
-  REGISTER: '/register',
-  FORGOT_PASSWORD: '/forgot-password',
-  RESET_PASSWORD: '/reset-password',
+  ADMIN_LOGIN: `/admin/login`,
+  ADMIN_REGISTER: '/admin/register',
+  ADMIN_FORGOT_PASSWORD: '/admin/forgot-password',
+  ADMIN_RESET_PASSWORD: '/admin/reset-password',
 }
 
 export const CustomerPrivateRoutes = {

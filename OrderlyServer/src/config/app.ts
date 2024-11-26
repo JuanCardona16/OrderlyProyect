@@ -1,10 +1,17 @@
 import "tsconfig-paths/register";
 import express from "express";
 import { corsConfig, setHeaders, errorGlobalHandler, handleNotFound } from "./api";
-import { setError } from "@/helpers";
 import routerApplication from "./routes/router";
+import { connectToDatabaseMongoAtlas } from "./infraestructure/mongoDB";
+import dotenv from 'dotenv'
+import { URL_DATABASE } from './constants'
+
+dotenv.config()
 
 const app = express();
+
+// Conección a la base de datos
+connectToDatabaseMongoAtlas(URL_DATABASE)
 
 app.use(express.json());
 app.use(express.urlencoded({ limit: "1mb", extended: true }));
